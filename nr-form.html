@@ -1,0 +1,32 @@
+<form id="f" action="">
+    Male<input type="radio" name="gender" value="male" id="male"/>
+    Female<input type="radio" name="gender" value="female"  id="female" />
+    <input type="submit" value="submit" />
+    <div id="message"></div>
+</form>
+
+<script>
+var f = document.getElementById('f');
+
+f.onsubmit = function (e) {
+    e = e || window.event;
+    var et = e.target || e.srcElement,
+        gender;
+
+    if (e.preventDefault) { e.preventDefault(); } else { e.returnValue = false; }
+
+    for (var i = 0, il = et.length; i < il; i++) {
+        if (et[i].name = 'gender' && et[i].checked) {
+            gender = et[i].value;
+        }
+    }
+
+    if (gender == 'male') {
+        document.body.style.backgroundColor = 'cyan';
+        document.getElementById("message").innerHTML = "You have Selected Male"
+    } else if (gender) {
+        document.body.style.backgroundColor = 'pink';
+        document.getElementById("message").innerHTML = "You have Selected Female"
+    }
+};
+</script>
